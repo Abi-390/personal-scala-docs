@@ -39,9 +39,11 @@ object PermissionsWithBits {                   // companion object for enum Perm
   val first = Permissions.READ.ordinal // ordinal method returns an integer pointing the index of read inside the enum
                                       // basically converted the enum to an int
 
-  val allPermissions =  Permissions.values
+  val allPermissions =  Permissions.values   // array with all the possible values
+  val readPermission: Permissions = Permissions.valueOf("READ") // Permissions.READ
 
   def main(args: Array[String]):Unit = {
       allPermissions.foreach(println)  // will basically print all the values inside the permissions enum
+    println(s"This is readPermission result : $readPermission")
     }
 }
