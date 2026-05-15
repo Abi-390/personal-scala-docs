@@ -18,6 +18,22 @@ object Traits {
 
   class AnnoyingFriend extends BrokenRecord with Talker("polictics")
 
+  //transparent traits
+
+  transparent trait Paintable     /* since  paintable is transparent so even though it extend with all 3 color in type inference of
+                                  val color it will not automatically show paintable also as an intersection type*/
+
+  trait Color extends Paintable  // now color is a child of paintable hence paintable is super+transparent trait now
+
+
+  case object Red extends Color with Paintable
+  case object Blue extends Color with Paintable
+  case object Green extends Color with Paintable
+
+  val color = if(43>2) Red else Blue
+
+
+
 
   def main(args:Array[String]):Unit = {
 
