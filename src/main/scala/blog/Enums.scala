@@ -47,3 +47,7 @@ object PermissionsWithBits {                   // companion object for enum Perm
     println(s"This is readPermission result : $readPermission")
     }
 }
+
+
+
+

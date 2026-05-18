@@ -21,9 +21,23 @@ object OpaqueTypes {
 
   import SocialNetwork._
 
-  // outside of the scope, Name != String
+  // Outside  of the scope, Name != String
   // val name: Name = "Abi" --> will not compile
 
+  object Graphics {
+    opaque type Color = Int  // in hex
+    opaque type ColorFilter <: Color = Int // Subtype of color type with a type int
+
+    val Red:Color = 0xFF000000
+    val Green:Color = 0x00FF0000
+    val Blue:Color = 0x0000FF00
+    val halfTransparency: ColorFilter = 0x88
+
+  }
+
+  import Graphics ._
+  case class OverlayFilter(c:Color)
+  val fadeLayer = OverlayFilter(halfTransparency)
 
 
 
