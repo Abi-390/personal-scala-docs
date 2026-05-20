@@ -38,6 +38,7 @@ object SetOperations {
     val union: Set[Int] = setA | setB   // or setA.union(setB)
     println("Merge :" + union)
 
+    // difference : Returns elements existing in setA but not in setB
     val difference:Set[Int] = setA &~ setB      // or setA.diff(setB)
     println("Difference of sets"+ difference)
   }
