@@ -37,13 +37,13 @@ object ListOperations {
     println(num.contains(3))
 
     //exists() : checks whether at least one element in the list meets a specific condition
-    println(num.exists(x=>x%2 ==0))
+    println(".exists() output"+num.exists(x=>x%2 ==0))
 
     // appendAll : adds all the elements of another collection to the end of a mutable collection.
     println("Only works on mutable list :"+" "+mutableList.appendAll(num))
 
     // appendedAll : It returns a new immutable list combining both collections, leaving the original list completely unchanged.
-    println("Works on immutable list and encouraged ot use :"+" "+fruits.appendedAll(num))
+    println("Works on immutable list and encouraged to use :"+" "+fruits.appendedAll(num))
 
     // filter: creates a new immutable list containing only the elements that match the specified condition.
     println(num.filter(x=>x%2!=0))
@@ -83,6 +83,7 @@ object ListOperations {
     // Sorts the elements of a list in ascending order based on an attribute or transformation function provided
     println("Sorted the fruits list based on fruits string length:"+" "+fruits.sortBy(fruit=>fruit.length))
 
+    
 
     // sortWith: sorts a list by using a custom comparison function that compares two elements at a time.
     println("Decending:"+num.sortWith((a,b)=>a>b))
@@ -91,7 +92,9 @@ object ListOperations {
     // Extracts the first n elements.
     println("First 3 element of list duplicate:" +duplicate.take(3))
 
-
+    // Skips the first n elements
     println("Elements after first 3 elements of duplicate:"+ duplicate.drop(3))
+    
+    
   }
 }
