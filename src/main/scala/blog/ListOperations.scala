@@ -80,21 +80,53 @@ object ListOperations {
     // mkString: Turns a list into a cleanly formatted string with separators
     println("Converted num list to string:"+" "+num.mkString(" "))
 
-    // Sorts the elements of a list in ascending order based on an attribute or transformation function provided
+    // sortBy: Sorts the elements of a list in ascending order based on an attribute or transformation function provided
     println("Sorted the fruits list based on fruits string length:"+" "+fruits.sortBy(fruit=>fruit.length))
 
-    
+
 
     // sortWith: sorts a list by using a custom comparison function that compares two elements at a time.
     println("Decending:"+num.sortWith((a,b)=>a>b))
 
 
-    // Extracts the first n elements.
+    // take: Extracts the first n elements.
     println("First 3 element of list duplicate:" +duplicate.take(3))
 
-    // Skips the first n elements
+    // drop: Skips the first n elements
     println("Elements after first 3 elements of duplicate:"+ duplicate.drop(3))
-    
+
+    // Prepending is O(1), appending is O(n)
+    val fastList = 0 :: num // Standard way to prepend (same as 0 +: num)
+    println(s"Prepended using cons: $fastList")
+
+    // Creating a List (The Construction Hat) --> :: this operator strictly belong to list only
+    /* When we use :: between normal variables,
+     it behaves just like +:. It takes an element on the left and attaches it to a list on the right.*/
+    val headEg = 1
+    val tailEg = List(2, 3, 4)
+
+    val newListEg = headEg :: tailEg // Result: List(1, 2, 3, 4)
+    println("New list created with :: -> "+ newListEg)
+
+    // Pattern Matching (The Deconstruction Hat)
+    /* When we use :: inside a case statement, we aren't combining anything.
+     We are doing the exact opposite: we are splitting an existing list apart. */
+    // If your list is List(1, 2, 3, 4)
+    num match {
+      case head :: tail => // Scala extracts: head = 1, tail = List(2, 3, 4)
+        println(s"The extracted head is: $head")        // Output: 10
+        println(s"The extracted tail is: $tail")        // Output: List(20, 30, 40)
+
+      // This case only runs if the list is completely empty
+      case Nil =>
+        println("The list was empty, nothing to split!")
+    }
+    /* The Performance Trap (+: vs :+): Appending to the front of a List (+:) is $O(1)$ (instantaneous) because it just links a new head.
+     Appending to the back (:+) is $O(n)$ (slow) because Scala has to copy the entire list to reach the end. If you need to append to the
+     back constantly, use Vector instead.
+     The Cons Operator (::): This is the quintessential idiomatic Scala way to build or prepend to a list.  */
+
+
     
   }
 }
