@@ -114,8 +114,8 @@ object ListOperations {
     // If your list is List(1, 2, 3, 4)
     num match {
       case head :: tail => // Scala extracts: head = 1, tail = List(2, 3, 4)
-        println(s"The extracted head is: $head")        // Output: 10
-        println(s"The extracted tail is: $tail")        // Output: List(20, 30, 40)
+        println(s"The extracted head is: $head")        // Output: 1
+        println(s"The extracted tail is: $tail")        // Output: List(2, 3, 4)
 
       // This case only runs if the list is completely empty
       case Nil =>
