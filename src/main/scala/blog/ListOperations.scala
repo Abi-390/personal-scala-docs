@@ -37,7 +37,7 @@ object ListOperations {
     println(num.contains(3))
 
     //exists() : checks whether at least one element in the list meets a specific condition
-    println(".exists() output"+num.exists(x=>x%2 ==0))
+    println(".exists() output-->"+num.exists(x=>x%2 ==0))
 
     // appendAll : adds all the elements of another collection to the end of a mutable collection.
     println("Only works on mutable list :"+" "+mutableList.appendAll(num))

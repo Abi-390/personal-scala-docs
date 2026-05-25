@@ -29,7 +29,7 @@ object IteratorOperations {
        But they evaluate LAZILY. Nothing happens until we explicitly consume them   */
     val freshIterator:Iterator[Int] = Iterator(1,2,3,4,5)
 
-    // This doesn't actually double the number yet; it jsu creates a plan to do so.
+    // This doesn't actually double the number yet; it just creates a plan to do so.
     val doubleIterator:Iterator[Int] = freshIterator.map(x=>x*2)
 
     // Converting a concrete collection forces evaluation and consumes  the iterator

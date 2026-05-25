@@ -54,7 +54,7 @@ object MapOperations {
       case (key,value) => println(s"$key -> $value")
     }
 
-    // Safely transforming map values without touching keys
+    // Safely transforming Map values without touching keys
     // Note: Use .view.mapValues in modern Scala to avoid mutating eagerly
     val incrementedMap = dummyMap.view.mapValues(value => value + "!").toMap
     println(s"Transformed values: $incrementedMap")

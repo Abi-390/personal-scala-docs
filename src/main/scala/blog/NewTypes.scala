@@ -5,7 +5,7 @@ import java.io.File
 object NewTypes {
 
   //1 -literal types
-  val aNumber = 3  // compiler auto-detected type as int from RHS
+  val aNumber = 3 // compiler auto-detected type as int from RHS
   val three: 3 =3 // 3 became a subtype of int
 
   def passNumber(n:Int)=println(n)
