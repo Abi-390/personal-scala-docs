@@ -1,0 +1,3 @@
+Hello Scala ! 
+This is line number 2 
+This line was successfully appended to the bottom . 
