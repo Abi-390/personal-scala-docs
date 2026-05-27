@@ -28,7 +28,8 @@ object doubtSolvingSheet {
     println(ListFlat)
 
     ListFlat match {
-      case list if ListFlat.contains(1) => println("1 found")
+      case lis if lis.contains(0) == false => println("0 notFound:" + lis)
+      case list if list.contains(1) => println("1 found" + list)
       case _ => println("No match")
     }
 
@@ -36,9 +37,9 @@ object doubtSolvingSheet {
     case class UserDetails(id: Int, name: String)
 
     def authenticateUser(userDetails: UserDetails): Unit = userDetails match {
-      case UserDetails(id,name) if id<0 => println("User id is invalid -->" +id)
-      case UserDetails(_,name) if name.trim.isEmpty => println("Name cannot be empty")
-      case UserDetails(id,name) => println(s"Welcome $name, your  id is $id")
+      case UserDetails(id, name) if id < 0 => println("User id is invalid -->" + id)
+      case UserDetails(_, name) if name.trim.isEmpty => println("Name cannot be empty")
+      case UserDetails(id, name) => println(s"Welcome $name, your  id is $id")
     }
 
     authenticateUser(UserDetails(-1, "Abinash"))
@@ -46,6 +47,42 @@ object doubtSolvingSheet {
     authenticateUser(UserDetails(1, "Abinash"))
 
 
+    def longestSubString(s: String): Unit = {
+
+      var left = 0
+      var right = 0
+      var maxLen = 0
+      var seen = Set[Char]()
+
+      while (s.length > right) {
+        val currentChar = s(right)
+
+        while (seen.contains(currentChar)) {
+          seen = seen - s(left)
+          left = left + 1
+        }
+        seen = seen + currentChar
+        maxLen = Math.max(maxLen, right - left + 1)
+        right = right + 1
+      }
+      println("Longest substring length is: " + maxLen)
+
+    }
+
+    longestSubString("abcxdbcdefgxdgbc")
+
 
   }
+  
+
+
+  val input = scala.io.StdIn.readLine("Type 'START' for your program to run ")
+  if (input == "START")
+    println("Granted access to for this code to run.")
+  else {
+    throw new IllegalArgumentException("Invalid input, try again.")
+  }
+
+
+
 }
